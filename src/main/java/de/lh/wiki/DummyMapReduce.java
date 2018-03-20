@@ -55,7 +55,7 @@ public class DummyMapReduce extends Configured implements Tool {
     }
 
     public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new ViewsPerShow(), args);
+        int exitCode = ToolRunner.run(new DummyMapReduce(), args);
         System.exit(exitCode);
     }
 }
