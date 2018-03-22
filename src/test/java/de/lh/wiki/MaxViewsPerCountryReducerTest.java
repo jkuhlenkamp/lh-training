@@ -1,6 +1,5 @@
 package de.lh.wiki;
 
-import de.lh.wiki.deprecated.MaxViewsPerCountryReducer;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
@@ -18,7 +17,7 @@ public class MaxViewsPerCountryReducerTest {
     @Test
     public void aggregateViewsByMax() throws IOException {
         new ReduceDriver<Text, IntWritable, Text, IntWritable>()
-            .withReducer( new MaxViewsPerCountryReducer())
+            .withReducer( new MaxViewsPerCountryDriver.MaxViewsPerCountryReducer())
             .withInput(new Text("de"), Arrays.asList(
                     new IntWritable(1),
                     new IntWritable(20),

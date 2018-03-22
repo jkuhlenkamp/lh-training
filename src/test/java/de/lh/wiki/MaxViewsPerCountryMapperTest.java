@@ -1,6 +1,5 @@
 package de.lh.wiki;
 
-import de.lh.wiki.deprecated.MaxViewsPerCountryMapper;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -21,7 +20,7 @@ public class MaxViewsPerCountryMapperTest {
     public void selectCountryAndViews() throws IOException {
 
         new MapDriver<LongWritable, Text, Text, IntWritable>()
-            .withMapper(new MaxViewsPerCountryMapper())
+            .withMapper(new MaxViewsPerCountryDriver.MaxViewsPerCountryMapper())
             .withInput(new LongWritable(0), new Text(RECORD))
             .withOutput(new Text("de"), new IntWritable(100000))
             .runTest();
